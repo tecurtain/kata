@@ -2,4 +2,9 @@ let fizzBuzz = (length) => {
   return [1]
 }
 
-export {fizzBuzz}
+let buzzFizz = (position) => {
+  return [1]
+}
+
+
+export {fizzBuzz, buzzFizz}
