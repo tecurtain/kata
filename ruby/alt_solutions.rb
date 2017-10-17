@@ -1,11 +1,11 @@
 (1..15).each do |number|
   val = case
         when (number % 3 == 0) && (number % 5 == 0)
-          "Hello World"
+          "FizzBuzz"
         when (number % 3 == 0)
-          "Hello"
+          "Fizz"
         when (number % 5 == 0)
-          "World"
+          "Buzz"
         else
           number
         end
