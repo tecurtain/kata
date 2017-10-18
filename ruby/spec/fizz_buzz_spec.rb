@@ -5,6 +5,7 @@ RSpec.describe FizzBuzz do
   it "returns [] for 0" do
     expect(FizzBuzz.call(0)).to eq []
   end
+
   it "returns [1] for 1" do
     expect(FizzBuzz.call(1)).to eq [1]
   end
@@ -21,3 +22,7 @@ RSpec.describe FizzBuzz do
     expect(FizzBuzz.call(15)).to eq [1,2,"Fizz",4,"Buzz","Fizz",7,8,"Fizz","Buzz",11,"Fizz",13,14,"FizzBuzz"]
   end
 end
+
+# it "handles ranges" do
+#   expect(FizzBuzz.call(3,7)).to eq ["Fizz", 4, "Buzz", "Fizz", 7]
+# end
