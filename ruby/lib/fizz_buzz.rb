@@ -2,8 +2,7 @@ require 'pry'
 
 class FizzBuzz
   def self.call(length)
-    a = Array.new(length) { |i| i+1 }
-    replaceNumWithString(a)
+    replaceNumWithString(1.upto(length))
   end
 
   def self.replaceNumWithString(a)
@@ -12,8 +11,3 @@ class FizzBuzz
      .map { |x| x % 5 == 0 ? 'Buzz' : x }
   end
 end
-
-# .MAP Method
-# [1,2,3].map {|x| x + 1 }
-
-# upto
