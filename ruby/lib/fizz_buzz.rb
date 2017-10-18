@@ -1,8 +1,9 @@
 require 'pry'
 
 class FizzBuzz
-  def self.call(length)
-    replaceNumWithString(1.upto(length))
+  def self.call(x, y)
+    a = (x..y).to_a
+    replaceNumWithString(a)
   end
 
   def self.replaceNumWithString(a)
