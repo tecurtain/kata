@@ -1,10 +1,7 @@
-let fizzBuzz = (length) => {
-  return [1]
-}
-
-let buzzFizz = (position) => {
-  return [1]
+let romanNumerals = (numbers) => {
+  return "I"
 }
 
 
-export {fizzBuzz, buzzFizz}
+
+export {romanNumerals}
