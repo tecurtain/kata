@@ -19,13 +19,13 @@ class ArabicToRoman
   ]
 
     def self.call(number)
-    result = ""
+    numberConvert = ""
     NUMERALS.each do |romanNumeral, decimalValue|
-      while number >= decimalValue
-        result += romanNumeral
+      while decimalValue <= number
+        numberConvert += romanNumeral
         number -= decimalValue
       end
     end
-    result
+    numberConvert
   end
 end
