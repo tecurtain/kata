@@ -5,9 +5,9 @@ var BowlingGame = require('../index');
 describe('BowlingGame', () => {
 
   it('can bowl a gutter game', () => {
-    var g = new BowlingGame();
+    var game = new BowlingGame();
     for (var i = 0; i < 20; i++) {
-      g.roll(0);
+      game.roll(0);
     }
   });
 });
