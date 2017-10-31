@@ -1,17 +1,16 @@
-import chai from "chai"
-import {roll} from "../index"
+var chai = require('chai');
+var expect = chai.expect;
+var BowlingGame = require('../index');
 
+describe('BowlingGame', () => {
 
-let expect = chai.expect
-
-describe("roll", () => {
-  it("returns a score equal to the number of pins knocked down", () => {
-    expect(roll(1)).to.deep.include.members([1])
-  })
-  it("returns a score equal to the number of pins knocked down", () => {
-    expect(roll(10)).to.deep.include.members([10])
-  })
-})
+  it('can bowl a gutter game', () => {
+    var g = new BowlingGame();
+    for (var i = 0; i < 20; i++) {
+      g.roll(0);
+    }
+  });
+});
 
 
 // The game consists of 10 frames as shown above. In each frame the player has two opportunities to knock down 10 pins. The score for the frame is the total number of pins knocked down, plus bonuses for strikes and spares.
