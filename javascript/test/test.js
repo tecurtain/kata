@@ -1,25 +1,24 @@
 import chai from "chai"
-import {fizzBuzz, buzzFizz} from "../index"
+import {roll} from "../index"
 
 
 let expect = chai.expect
 
-describe("fizzBuzz", () => {
-  it("returns array containing 1 for 1", () => {
-    expect(fizzBuzz(1)).to.deep.include.members([1])
+describe("roll", () => {
+  it("returns a score equal to the number of pins knocked down", () => {
+    expect(roll(1)).to.deep.include.members([1])
+  })
+  it("returns a score equal to the number of pins knocked down", () => {
+    expect(roll(10)).to.deep.include.members([10])
   })
 })
 
-describe("buzzFizz", () => {
-  it("returns array containing 1 for 1", () => {
-    expect(buzzFizz(1)).to.deep.include.members([1])
-  })
-})
 
-// If I pass in Agument of 7 I will get an array of 7 elements
-// [1,2,fizz,4,buzz,fizz,7]
-// at 15 should have "fizzBuzz" for the first time
-
-// next test case should be 2 then 3, then 4 so on
-
-// practice extracting vaiables, or inlines, or function calls and inline
+// The game consists of 10 frames as shown above. In each frame the player has two opportunities to knock down 10 pins. The score for the frame is the total number of pins knocked down, plus bonuses for strikes and spares.
+//
+// A spare is when the player knocks down all 10 pins in two tries. The bonus for that frame is the number of pins knocked down by the next roll. So in frame 3 above, the score is 10 (the total number knocked down) plus a bonus of 5 (the number of pins knocked down on the next roll.)
+//
+// A strike is when the player knocks down all 10 pins on his first try. The bonus for that frame is the value of the next two balls rolled.
+//
+// In the tenth frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame. However no more than three balls can be rolled in tenth frame.
+//

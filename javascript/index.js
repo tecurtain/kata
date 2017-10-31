@@ -1,10 +1,6 @@
-let fizzBuzz = (length) => {
-  return [1]
-}
-
-let buzzFizz = (position) => {
-  return [1]
+let roll = (pins) => {
+  return [pins]
 }
 
 
-export {fizzBuzz, buzzFizz}
+export {roll}
