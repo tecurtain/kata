@@ -1,5 +1,9 @@
 function BowlingGame() {
-  this.roll = function() {
+  this.roll = () => {
+
+  }
+
+  this.score = () => {
 
   }
 }

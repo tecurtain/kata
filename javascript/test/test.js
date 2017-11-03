@@ -9,9 +9,21 @@ describe('BowlingGame', () => {
     for (var i = 0; i < 20; i++) {
       game.roll(0);
     }
+    expect (game.score()).to.equal(0);
+  });
+  it('can bowl a game of all ones', () => {
+
+  });
+  it('can bowl a game w/ 1 spare', () => {
+
+  });
+  it('can bowl a game w/ 1 strike', () => {
+
+  });
+  it('can bowl a game w/ all strikes ie 300 game', () => {
+
   });
 });
-
 
 // The game consists of 10 frames as shown above. In each frame the player has two opportunities to knock down 10 pins. The score for the frame is the total number of pins knocked down, plus bonuses for strikes and spares.
 //
