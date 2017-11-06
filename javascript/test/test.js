@@ -49,6 +49,11 @@ describe('BowlingGame', () => {
     expect(game.score()).to.equal(24);
   });
 
+  it('can bowl a perfect game', () => {
+    rollMany(12, 10);
+    expect(game.score()).to.equal(300);
+  });
+  
 });
 
 // can bowl a game of all 1's
