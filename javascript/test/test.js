@@ -15,6 +15,11 @@ describe('BowlingGame', () => {
     }
   }
 
+  let rollSpare = () => {
+    game.roll(5);
+    game.roll(5);
+  }
+
   it('can bowl a gutter game', () => {
     rollMany(20, 0);
     expect (game.score()).to.equal(0);
@@ -26,8 +31,7 @@ describe('BowlingGame', () => {
   });
 
   it('can bowl one spare', () => {
-    game.roll(5);
-    game.roll(5); //spare
+    rollSpare();
     game.roll(3);
     rollMany(17, 0);
     expect(game.score()).to.equal(16);
