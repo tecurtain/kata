@@ -4,26 +4,42 @@ var BowlingGame = require('../index');
 
 describe('BowlingGame', () => {
 
-  it('can bowl a gutter game', () => {
-    var game = new BowlingGame();
-    for (var i = 0; i < 20; i++) {
-      game.roll(0);
+  var game;
+  beforeEach(function() {
+    game = new BowlingGame();
+  });
+
+  let rollMany = (n, pins) => {
+    for (var i = 0; i < n; i++) {
+      game.roll(pins);
     }
+  }
+
+  it('can bowl a gutter game', () => {
+    rollMany(20, 0);
     expect (game.score()).to.equal(0);
   });
+
   it('can bowl a game of all ones', () => {
-
+    rollMany(20, 1);
+    expect (game.score()).to.equal(20);
   });
-  it('can bowl a game w/ 1 spare', () => {
 
+  it('can bowl one spare', () => {
+    game.roll(5);
+    game.roll(5); //spare
+    game.roll(3);
+    rollMany(17, 0);
+    expect(game.score()).to.equal(16);
   });
-  it('can bowl a game w/ 1 strike', () => {
 
-  });
-  it('can bowl a game w/ all strikes ie 300 game', () => {
-
-  });
 });
+
+// can bowl a game of all 1's
+// can bowl a game w/ 1 spare
+// can bowl a game w/ 1 strike
+// can bowl a game w/ all strikes ie 300 game
+
 
 // The game consists of 10 frames as shown above. In each frame the player has two opportunities to knock down 10 pins. The score for the frame is the total number of pins knocked down, plus bonuses for strikes and spares.
 //

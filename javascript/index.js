@@ -1,10 +1,24 @@
 function BowlingGame() {
-  this.roll = () => {
+  var rolls = [];
 
+  this.roll = (pins) => {
+    rolls.push(pins);
   }
 
   this.score = () => {
-
+    var score = 0;
+    var i = 0;
+    for (var frame = 0; frame < 10; frame++) {
+      // Spare
+      if (rolls[i] + rolls[i + 1] === 10) {
+        score += 10 + rolls[i + 2];
+        i +=2;
+      } else {
+        score += rolls[i] + rolls[i + 1];
+        i += 2;
+      }
+    }
+    return score
   }
 }
 

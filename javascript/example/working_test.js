@@ -4,53 +4,53 @@ var BowlingGame = require('../index');
 
 describe('BowlingGame', () => {
 
-  var g;
+  var game;
   beforeEach(function() {
-    g = new BowlingGame();
+    game = new BowlingGame();
   });
 
   let rollMany = (n, pins) => {
     for (var i = 0; i < n; i++) {
-      g.roll(pins);
+      game.roll(pins);
     }
   }
 
   let rollSpare = () => {
-    g.roll(5);
-    g.roll(5);
+    game.roll(5);
+    game.roll(5);
   }
 
   let rollStrike = () => {
-    g.roll(10);
+    game.roll(10);
   }
 
   it('can bowl a gutter game', () => {
     rollMany(20, 0);
-    expect (g.score()).to.equal(0);
+    expect (game.score()).to.equal(0);
   });
 
   it('can bowl a game of ones', () => {
     rollMany(20, 1);
-    expect(g.score()).to.equal(20);
+    expect(game.score()).to.equal(20);
   });
 
   it('can bowl one spare', () => {
     rollSpare();
-    g.roll(3);
+    game.roll(3);
     rollMany(17, 0);
-    expect(g.score()).to.equal(16);
+    expect(game.score()).to.equal(16);
   });
 
   it('can bowl one strike', () => {
     rollStrike();
-    g.roll(3);
-    g.roll(4);
+    game.roll(3);
+    game.roll(4);
     rollMany(16, 0);
-    expect(g.score()).to.equal(24);
+    expect(game.score()).to.equal(24);
   });
 
   it('can bowl a perfect game', () => {
     rollMany(12, 10);
-    expect(g.score()).to.equal(300)
+    expect(game.score()).to.equal(300)
   });
 });
