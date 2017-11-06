@@ -20,6 +20,10 @@ describe('BowlingGame', () => {
     game.roll(5);
   }
 
+  let rollStrike = () => {
+    game.roll(10);
+  }
+
   it('can bowl a gutter game', () => {
     rollMany(20, 0);
     expect (game.score()).to.equal(0);
@@ -35,6 +39,14 @@ describe('BowlingGame', () => {
     game.roll(3);
     rollMany(17, 0);
     expect(game.score()).to.equal(16);
+  });
+
+  it('can bowl a strike', () => {
+    rollStrike();
+    game.roll(3);
+    game.roll(4);
+    rollMany(16, 0);
+    expect(game.score()).to.equal(24);
   });
 
 });
