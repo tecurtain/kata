@@ -1,15 +1,12 @@
 require "pry"
 
 class BowlingGame
+  attr_reader :score
+
   def initialize
     @score = 0
   end
-
-  def roll(number)
-    @score += number
-  end
-
-  def score
-    @score
+  def roll(pins)
+    @score += pins
   end
 end
