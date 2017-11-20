@@ -1,7 +1,7 @@
 require "pry"
 
 class BowlingGame
-  def self.call(length)
-    [1]
+  def self.call(pins)
+    [0]
   end
 end
