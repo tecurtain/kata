@@ -14,9 +14,12 @@ class BowlingGame
     frame_index = 0
     frame = 0
     while frame < 10
-      if @rolls[frame_index] + @rolls[frame_index + 1] == 10
-        score += 10 + @rolls[frame_index + 2]
-        frame_index += 2
+      if @rolls[frame_index] == 10
+        score += 10 + @rolls[frame_index + 1] + @rolls[frame_index + 2]
+        frame_index += 1
+    elsif @rolls[frame_index] + @rolls[frame_index + 1] == 10
+      score += 10 + @rolls[frame_index + 2]
+      frame_index += 2
     else score += @rolls[frame_index] + @rolls[frame_index + 1]
         frame_index += 2
       end
