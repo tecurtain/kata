@@ -1,12 +1,19 @@
 require "pry"
 
 class BowlingGame
-  attr_reader :score
-
   def initialize
-    @score = 0
+    @rolls = []
   end
+
   def roll(pins)
-    @score += pins
+    @rolls.push(pins)
+  end
+
+  def score
+    score = 0
+    @rolls.each do |x|
+      score += x
+    end
+    score
   end
 end

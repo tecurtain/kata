@@ -4,7 +4,7 @@ RSpec.describe BowlingGame do
   before do
     @game = BowlingGame.new
   end
-  
+
   it "can bowl a gutter game of all zeros" do
     20.times { @game.roll(0) }
 
@@ -17,7 +17,15 @@ RSpec.describe BowlingGame do
      expect(@game.score).to eq(20)
    end
 
-  it "can bowl a game with a spare"
+  it "can bowl a game with a spare" do
+    pending
+    2.times { @game.roll(5) }
+    @game.roll(3)
+    17.times { @game.roll(0) }
+
+    expect(@game.score).to eq(16)
+  end
+
   it "can bowl a game with a strike"
   it "can bowl a perfect game"
 
