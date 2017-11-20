@@ -1,6 +1,6 @@
 require "pry"
 
-class FizzBuzz
+class BowlingGame
   def self.call(length)
     [1]
   end
