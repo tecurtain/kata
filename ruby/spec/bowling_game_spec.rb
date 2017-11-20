@@ -18,7 +18,6 @@ RSpec.describe BowlingGame do
    end
 
   it "can bowl a game with a spare" do
-    pending
     2.times { @game.roll(5) }
     @game.roll(3)
     17.times { @game.roll(0) }
