@@ -1,4 +1,4 @@
-require "pry"
+require 'pry'
 
 class BowlingGame
   attr_reader :rolls
@@ -39,11 +39,11 @@ class BowlingGame
       if strike?(frame_index)
         score += 10 + strike_bonus(frame_index)
         frame_index += 1
-    elsif spare?(frame_index)
-      score += 10 + spare_bonus(frame_index)
-      frame_index += 2
-    else score += sum_of_balls_in_frame(frame_index)
+      elsif spare?(frame_index)
+        score += 10 + spare_bonus(frame_index)
         frame_index += 2
+      else score += sum_of_balls_in_frame(frame_index)
+           frame_index += 2
       end
       frame += 1
     end

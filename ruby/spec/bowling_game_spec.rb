@@ -1,4 +1,4 @@
-require_relative "../lib/bowling_game"
+require_relative '../lib/bowling_game'
 
 RSpec.describe BowlingGame do
   before do
@@ -20,24 +20,24 @@ RSpec.describe BowlingGame do
     @game.roll(10)
   end
 
-  it "can bowl a gutter game of all zeros" do
+  it 'can bowl a gutter game of all zeros' do
     roll_many(20, 0)
     expect(@game.score).to eq(0)
   end
 
-  it "can bowl a game of all ones" do
+  it 'can bowl a game of all ones' do
     roll_many(20, 1)
     expect(@game.score).to eq(20)
-   end
+  end
 
-  it "can bowl a game with a spare" do
+  it 'can bowl a game with a spare' do
     roll_spare
     @game.roll(3)
     roll_many(17, 0)
     expect(@game.score).to eq(16)
   end
 
-  it "can bowl a game with a strike" do
+  it 'can bowl a game with a strike' do
     roll_strike
     @game.roll(3)
     @game.roll(4)
@@ -45,7 +45,7 @@ RSpec.describe BowlingGame do
     expect(@game.score).to eq(24)
   end
 
-  it "can bowl a perfect game" do
+  it 'can bowl a perfect game' do
     roll_many(12, 10)
     expect(@game.score).to eq(300)
   end
