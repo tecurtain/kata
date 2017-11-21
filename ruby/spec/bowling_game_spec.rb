@@ -26,8 +26,8 @@ RSpec.describe BowlingGame do
   end
 
   it "can bowl a game of all ones" do
-     roll_many(20, 1)
-     expect(@game.score).to eq(20)
+    roll_many(20, 1)
+    expect(@game.score).to eq(20)
    end
 
   it "can bowl a game with a spare" do
@@ -49,5 +49,4 @@ RSpec.describe BowlingGame do
     roll_many(12, 10)
     expect(@game.score).to eq(300)
   end
-
 end

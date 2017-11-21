@@ -1,6 +1,8 @@
 require "pry"
 
 class BowlingGame
+  attr_reader :rolls
+
   def initialize
     @rolls = []
   end
