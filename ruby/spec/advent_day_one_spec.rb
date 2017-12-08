@@ -1,8 +1,13 @@
 require_relative '../lib/advent_day_one'
 
 RSpec.describe Captcha do
-  it('can find the sum of all digits that match the next digit in the list') do
+  before do
+    @run = Captcha.new
+  end
 
+  it('1122 produces a sum of 3 (1 + 2)') do
+    @run.calculate(3)
+    expect(@run.answer).to eq(3)
   end
 end
 
