@@ -6,8 +6,12 @@ RSpec.describe Captcha do
   end
 
   it('1122 produces a sum of 3 (1 + 2)') do
-    @run.calculate('1122')
-    expect(@run.answer).to eq(3)
+    @run.to_array('1122')
+    expect(@run.calculate_total).to eq(3)
+  end
+  it('1111 produces 4') do
+    @run.to_array('1111')
+    expect(@run.calculate_total).to eq(4)
   end
 end
 
