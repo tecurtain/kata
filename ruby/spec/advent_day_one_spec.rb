@@ -6,7 +6,7 @@ RSpec.describe Captcha do
   end
 
   it('1122 produces a sum of 3 (1 + 2)') do
-    @run.calculate(3)
+    @run.calculate('1122')
     expect(@run.answer).to eq(3)
   end
 end

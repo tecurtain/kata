@@ -3,11 +3,11 @@ require 'pry'
 class Captcha
 
   def initialize
-    @answer = 0
+    @answer = []
   end
 
   def calculate(input)
-    @answer += input
+    @answer += input.each_char.map(&:to_i)
   end
 
   def answer
