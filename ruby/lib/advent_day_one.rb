@@ -4,7 +4,7 @@ class Captcha
 
   def initialize
     @answer = []
-    @sum_array = []
+    @sum_array = [0]
   end
 
   def to_array(input)
@@ -39,7 +39,7 @@ class Captcha
   def calculate_total
     calculate_next_element
     calculate_first_final_element
-    @sum_array
+    @sum_array.reduce(:+)
   end
 end
 

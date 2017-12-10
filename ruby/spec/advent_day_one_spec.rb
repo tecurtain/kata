@@ -2,24 +2,26 @@ require_relative '../lib/advent_day_one'
 
 RSpec.describe Captcha do
   before do
-    @run = Captcha.new
+    @execute = Captcha.new
   end
 
-  it('1122 produces a sum of 3 (1 + 2)') do
-    @run.to_array('1122')
-    expect(@run.calculate_total).to eq(3)
+  it('returns a sum of 3 (1 + 2) given 1122') do
+    @execute.to_array('1122')
+    expect(@execute.calculate_total).to eq(3)
   end
-  it('1111 produces 4') do
-    @run.to_array('1111')
-    expect(@run.calculate_total).to eq(4)
+  it('returns 4 given 1111') do
+    @execute.to_array('1111')
+    expect(@execute.calculate_total).to eq(4)
+  end
+  it('returns 0 given 1234') do
+    @execute.to_array('1234')
+    expect(@execute.calculate_total).to eq(0)
+  end
+  it('returns 9 given 91212129') do
+    @execute.to_array('91212129')
+    expect(@execute.calculate_total).to eq(9)
   end
 end
-
-
-
-
-
-
 
 
 
