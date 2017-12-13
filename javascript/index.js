@@ -29,6 +29,17 @@ const multipleArray = createGroupedArray(singleArray, 4);
 module.exports = CheckSum
 
 
+  // this.lineDiffSum = (arrOfArrs) => {
+  //   arrOfArrs.map(lineDiff).sum()
+  // }
+  //
+  // this.lineDiff = (arr) => {
+  //   var arrayMax = Math.max(...arr)
+  //   var arrayMin = Math.min(...arr)
+  //   return arrayMax - arrayMin
+  // }
+
+
 // input2 = "1 2\n3 4"
 // "1 2
 // 3 4"
