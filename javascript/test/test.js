@@ -10,6 +10,6 @@ describe('CheckSum', () => {
   });
 
   it('is an array', () => {
-    expect(check).to.equal([]);
+    expect(check.calc()).to.equal(21);
   });
 });

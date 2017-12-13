@@ -2,7 +2,39 @@ function CheckSum() {
 
 const input = `5 1 9 5 7 5 3 0 2 4 6 8`.replace(/\s+/g, ',')
 
-const array = JSON.parse("[" + input + "]"
+const singleArray = JSON.parse("[" + input + "]")
+
+const createGroupedArray = (singleArray, chunkSize) => {
+  var groups = [], i;
+  for (i = 0; i < singleArray.length; i += chunkSize) {
+      groups.push(singleArray.slice(i, i + chunkSize));
+    }
+  return groups;
+}
+
+const multipleArray = createGroupedArray(singleArray, 4);
+
+  this.calc = () => {
+    var arrayIndex = 0;
+    var arrayValue = 0;
+    for (var x = 0; x < multipleArray.length; x++) {
+      var arrayMax = Math.max(...multipleArray[x])
+      var arrayMin = Math.min(...multipleArray[x])
+      arrayValue += arrayMax - arrayMin
+    }
+    return arrayValue
+  }
+}
+
+module.exports = CheckSum
+
+
+// input2 = "1 2\n3 4"
+// "1 2
+// 3 4"
+// input2.split("\n")
+// (2) ["1 2", "3 4"]
+
 
   // const input = `5048	177	5280	5058	4504	3805	5735	220	4362	1809	1521	230	772	1088	178	1794
   // 6629	3839	258	4473	5961	6539	6870	4140	4638	387	7464	229	4173	5706	185	271
@@ -22,6 +54,22 @@ const array = JSON.parse("[" + input + "]"
   // 2426	192	1764	288	4431	2396	2336	854	2157	216	4392	3972	229	244	4289	1902`.replace(/\s+/g, ',')
   //
   // const array = JSON.parse("[" + input + "]")
-}
 
-module.exports = CheckSum
+  //IRB
+//  2.3.1 :001 > "1 2 3 4".split(/\s/)
+//  => ["1", "2", "3", "4"]
+// 2.3.1 :002 > "1 2\n3 4"
+//  => "1 2\n3 4"
+// 2.3.1 :003 > puts "1 2\n3 4"
+// 1 2
+// 3 4
+//  => nil
+// 2.3.1 :004 > input =  "1 2\n3 4"
+//  => "1 2\n3 4"
+// 2.3.1 :005 > input.split("\n")
+//  => ["1 2", "3 4"]
+// 2.3.1 :006 > lines = input.split("\n")
+//  => ["1 2", "3 4"]
+// 2.3.1 :007 > lines.map { |line| line.split(/\s/) }
+//  => [["1", "2"], ["3", "4"]]
+// 2.3.1 :008 >
