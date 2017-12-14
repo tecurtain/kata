@@ -1,43 +1,56 @@
 function CheckSum() {
 
-const input = `5 1 9 5 7 5 3 0 2 4 6 8`.replace(/\s+/g, ',')
+const input =
+`5 1 9 5
+7 5 3
+2 4 6 8`.split("\n")
 
-const singleArray = JSON.parse("[" + input + "]")
+  this.transform = () => {
+    var newInput = input.map(x => x.split(/\s/))
+    var arrOfArrs = newInput.map(y => y.map(Number))
+    var finalSum =  arrOfArrs.map(this.lineDiff)
+    return finalSum.reduce(function(a, b) { return a + b; }, 0)
+  }
 
-const createGroupedArray = (singleArray, chunkSize) => {
-  var groups = [], i;
-  for (i = 0; i < singleArray.length; i += chunkSize) {
-      groups.push(singleArray.slice(i, i + chunkSize));
-    }
-  return groups;
+this.lineDiffSum = (arrOfArrs) => {
+  var total = arrOfArrs.map(lineDiff).sum()
+  return total
 }
 
-const multipleArray = createGroupedArray(singleArray, 4);
-
-  this.calc = () => {
-    var arrayIndex = 0;
-    var arrayValue = 0;
-    for (var x = 0; x < multipleArray.length; x++) {
-      var arrayMax = Math.max(...multipleArray[x])
-      var arrayMin = Math.min(...multipleArray[x])
-      arrayValue += arrayMax - arrayMin
-    }
-    return arrayValue
+  this.lineDiff = (arr) => {
+    var arrayMax = Math.max(...arr)
+    var arrayMin = Math.min(...arr)
+    return arrayMax - arrayMin
   }
 }
+// const singleArray = JSON.parse("[" + input + "]")
+//
+// const createGroupedArray = (singleArray, chunkSize) => {
+//   var groups = [], i;
+//   for (i = 0; i < singleArray.length; i += chunkSize) {
+//       groups.push(singleArray.slice(i, i + chunkSize));
+//     }
+//   return groups;
+// }
+//
+// const multipleArray = createGroupedArray(singleArray, 4);
+//
+//   this.calc = () => {
+//     var arrayIndex = 0;
+//     var arrayValue = 0;
+//     for (var x = 0; x < multipleArray.length; x++) {
+//       var arrayMax = Math.max(...multipleArray[x])
+//       var arrayMin = Math.min(...multipleArray[x])
+//       arrayValue += arrayMax - arrayMin
+//     }
+//     return arrayValue
+//   }
+// }
 
 module.exports = CheckSum
 
 
-  // this.lineDiffSum = (arrOfArrs) => {
-  //   arrOfArrs.map(lineDiff).sum()
-  // }
-  //
-  // this.lineDiff = (arr) => {
-  //   var arrayMax = Math.max(...arr)
-  //   var arrayMin = Math.min(...arr)
-  //   return arrayMax - arrayMin
-  // }
+
 
 
 // input2 = "1 2\n3 4"
@@ -66,7 +79,7 @@ module.exports = CheckSum
   //
   // const array = JSON.parse("[" + input + "]")
 
-  //IRB
+//   IRB
 //  2.3.1 :001 > "1 2 3 4".split(/\s/)
 //  => ["1", "2", "3", "4"]
 // 2.3.1 :002 > "1 2\n3 4"
