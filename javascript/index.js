@@ -5,17 +5,19 @@ const input =
 7 5 3
 2 4 6 8`.split("\n")
 
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
   this.transform = () => {
     var newInput = input.map(x => x.split(/\s/))
     var arrOfArrs = newInput.map(y => y.map(Number))
-    var finalSum =  arrOfArrs.map(this.lineDiff)
-    return finalSum.reduce(function(a, b) { return a + b; }, 0)
+    var finalSum =  arrOfArrs.map(this.lineDiff).reduce(reducer)
+    return finalSum
   }
-
-this.lineDiffSum = (arrOfArrs) => {
-  var total = arrOfArrs.map(lineDiff).sum()
-  return total
-}
+  //
+  // this.lineDiffSum = (arrOfArrs) => {
+  //   var total = arrOfArrs.map(this.lineDiff).reduce(reducer)
+  //   return total
+  // }
 
   this.lineDiff = (arr) => {
     var arrayMax = Math.max(...arr)
