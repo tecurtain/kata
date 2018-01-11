@@ -14,22 +14,28 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
     return finalSum
   }
 
-  this.lineDiff = (arr) => {
-    var arrayMax = Math.max(...arr)
-    var arrayMin = Math.min(...arr)
-    return arrayMax - arrayMin
+  this.stringToArr = (splitString) => {
+    return splitString.map(x => x.split(/\s/))
   }
 
   this.arrNumberMap = (arrString) => {
     return arrString.map(y => y.map(Number))
   }
 
-  this.stringToArr = (splitString) => {
-    return splitString.map(x => x.split(/\s/))
-  }
-
   this.reduceLineDiff = (multiArr) => {
     return multiArr.map(this.lineDiff).reduce(reducer)
+  }
+
+  this.lineDiff = (arr) => {
+    var arrayMax = Math.max(...arr)
+    var arrayMin = Math.min(...arr)
+    return arrayMax - arrayMin
+  }
+  this.arraySum = (arrNum) => {
+    var newInput = this.stringToArr(input)
+    var arrOfArrs = this.arrNumberMap(newInput)
+    var finalSingleArrSum = this.lineDiff(arrOfArrs[arrNum])
+    return finalSingleArrSum
   }
 }
 
