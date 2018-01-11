@@ -1,9 +1,9 @@
 function CheckSum() {
 
 const input =
-`5 9 2 8
-9 4 7 3
-3 8 6 5`.split("\n")
+`5 1 9 5
+7 5 3
+2 4 6 8`.split("\n")
 
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
