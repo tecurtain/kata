@@ -21,18 +21,15 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
   }
 
   this.arrNumberMap = (arrString) => {
-    var arrOfArrs = arrString.map(y => y.map(Number))
-    return arrOfArrs
+    return arrString.map(y => y.map(Number))
   }
 
   this.stringToArr = (splitString) => {
-    var newInput = splitString.map(x => x.split(/\s/))
-    return newInput
+    return splitString.map(x => x.split(/\s/))
   }
 
   this.reduceLineDiff = (multiArr) => {
-    var finalSum =  multiArr.map(this.lineDiff).reduce(reducer)
-    return finalSum
+    return multiArr.map(this.lineDiff).reduce(reducer)
   }
 }
 
