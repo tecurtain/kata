@@ -1,30 +1,47 @@
 function CheckSum() {
 
 const input =
-`5 1 9 5
-7 5 3
-2 4 6 8`.split("\n")
+`5 9 2 8
+9 4 7 3
+3 8 6 5`.split("\n")
 
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
   this.transform = () => {
-    var newInput = input.map(x => x.split(/\s/))
-    var arrOfArrs = newInput.map(y => y.map(Number))
-    var finalSum =  arrOfArrs.map(this.lineDiff).reduce(reducer)
+    var newInput = this.stringToArr(input)
+    var arrOfArrs = this.arrNumberMap(newInput)
+    var finalSum =  this.reduceLineDiff(arrOfArrs)
     return finalSum
   }
-  //
-  // this.lineDiffSum = (arrOfArrs) => {
-  //   var total = arrOfArrs.map(this.lineDiff).reduce(reducer)
-  //   return total
-  // }
 
   this.lineDiff = (arr) => {
     var arrayMax = Math.max(...arr)
     var arrayMin = Math.min(...arr)
     return arrayMax - arrayMin
   }
+
+  this.arrNumberMap = (arrString) => {
+    var arrOfArrs = arrString.map(y => y.map(Number))
+    return arrOfArrs
+  }
+
+  this.stringToArr = (splitString) => {
+    var newInput = splitString.map(x => x.split(/\s/))
+    return newInput
+  }
+
+  this.reduceLineDiff = (multiArr) => {
+    var finalSum =  multiArr.map(this.lineDiff).reduce(reducer)
+    return finalSum
+  }
 }
+
+//
+// this.lineDiffSum = (arrOfArrs) => {
+//   var total = arrOfArrs.map(this.lineDiff).reduce(reducer)
+//   return total
+// }
+
 // const singleArray = JSON.parse("[" + input + "]")
 //
 // const createGroupedArray = (singleArray, chunkSize) => {
