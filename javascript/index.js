@@ -31,11 +31,73 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
     var arrayMin = Math.min(...arr)
     return arrayMax - arrayMin
   }
-  this.arraySum = (arrNum) => {
+  this.arraySum = (index) => {
     var newInput = this.stringToArr(input)
     var arrOfArrs = this.arrNumberMap(newInput)
-    var finalSingleArrSum = this.lineDiff(arrOfArrs[arrNum])
+    var finalSingleArrSum = this.lineDiff(arrOfArrs[index])
     return finalSingleArrSum
+  }
+}
+
+module.exports = CheckSum
+
+// if x / y >= 1 then x / y = z keep ruuning totals of z
+
+// const map1 = array.map(x => x / array[index]);
+//
+// const array = [5, 9, 2, 8]
+//
+// divideSum = (array) => {
+//   var index = 0
+//   var sum = 0
+//
+//   for (var i = 0; i < array.length; i++) {
+//     if (array[index] / array[index + 1] >= 1) {
+//       sum += array[index] / array[index + 1];
+//       index++
+//     } else {
+//       index++
+//     }
+//     return sum
+//   }
+// }
+
+
+
+const array = [5, 9, 2, 8]
+
+mappedIndexValue = (index) => {
+  var mappedArray = array.map(x => x / array[index])
+  return mappedArray
+}
+
+divideSum = (array) => {
+  var index = 0
+  var sum = 0
+
+  for (var i = 0; i < array.length; i++) {
+    if (mappedIndexValue(index)[index] <= 2) {
+      index++
+    } else {
+      sum += mappedIndexValue(index)[index];
+      index++
+    }
+  }
+  return sum
+}
+
+
+for (var frame = 0; frame < 10; frame++) {
+  // Strike
+  if (isStrike(frameIndex)) {
+    score += 10 + strikeBonus(frameIndex);
+    frameIndex++
+  } else if (isSpare(frameIndex)) {
+    score += 10 + spareBonus(frameIndex);
+    frameIndex +=2;
+  } else {
+    score += sumOfBallsInFrame(frameIndex);
+    frameIndex += 2;
   }
 }
 
@@ -69,19 +131,11 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 //   }
 // }
 
-module.exports = CheckSum
-
-
-
-
-
 // input2 = "1 2\n3 4"
 // "1 2
 // 3 4"
 // input2.split("\n")
 // (2) ["1 2", "3 4"]
-
-
 
   // // const input = `5048	177	5280	5058	4504	3805	5735	220	4362	1809	1521	230	772	1088	178	1794
   // 6629	3839	258	4473	5961	6539	6870	4140	4638	387	7464	229	4173	5706	185	271
@@ -101,7 +155,7 @@ module.exports = CheckSum
   // 2426	192	1764	288	4431	2396	2336	854	2157	216	4392	3972	229	244	4289	1902`.replace(/\s+/g, ',')
   //
   // const array = JSON.parse("[" + input + "]")
-
+//
 //   IRB
 //  2.3.1 :001 > "1 2 3 4".split(/\s/)
 //  => ["1", "2", "3", "4"]
