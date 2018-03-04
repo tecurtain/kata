@@ -1,25 +1,26 @@
 import chai from "chai"
-import {fizzBuzz, buzzFizz} from "../index"
+import {filter, filterFunc} from "../index"
 
 
 let expect = chai.expect
 
-describe("fizzBuzz", () => {
+describe("filter", () => {
   it("returns array containing 1 for 1", () => {
-    expect(fizzBuzz(1)).to.deep.include.members([1])
+    expect([1,2,3], x => true).to.deep.include.members([1,2,3])
+  })
+  it("returns array containing 1 for 1", () => {
+    expect([1,2,3], x => false).to.deep.include.members([])
+  })
+  it("returns array containing 1 for 1", () => {
+    expect([true,false,true], x => x).to.deep.include.members([true, true])
+  })
+  it("returns array containing 1 for 1", () => {
+    expect(['a','b','c'], x => x != 'b').to.deep.include.members(['a','c'])
   })
 })
 
-describe("buzzFizz", () => {
-  it("returns array containing 1 for 1", () => {
-    expect(buzzFizz(1)).to.deep.include.members([1])
-  })
-})
-
-// If I pass in Agument of 7 I will get an array of 7 elements
-// [1,2,fizz,4,buzz,fizz,7]
-// at 15 should have "fizzBuzz" for the first time
-
-// next test case should be 2 then 3, then 4 so on
-
-// practice extracting vaiables, or inlines, or function calls and inline
+// Test cases
+// filter([1,2,3], x => true) == [1,2,3]
+// filter([1,2,3], x => false) == []
+// filter([true,false,true], x => x) == [true, true]
+// filter(['a','b','c'], x => x != 'b') == ['a','c']
