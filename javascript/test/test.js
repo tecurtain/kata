@@ -5,16 +5,16 @@ import {filter, filterFunc} from "../index"
 let expect = chai.expect
 
 describe("filter", () => {
-  it("returns array containing 1 for 1", () => {
+  it("returns the exact array that was passed to the function", () => {
     expect([1,2,3], x => true).to.deep.include.members([1,2,3])
   })
-  it("returns array containing 1 for 1", () => {
+  it("returns an empty array", () => {
     expect([1,2,3], x => false).to.deep.include.members([])
   })
-  it("returns array containing 1 for 1", () => {
+  it("returns array containing [true, true]", () => {
     expect([true,false,true], x => x).to.deep.include.members([true, true])
   })
-  it("returns array containing 1 for 1", () => {
+  it("returns array containing ['a','c']", () => {
     expect(['a','b','c'], x => x != 'b').to.deep.include.members(['a','c'])
   })
 })
