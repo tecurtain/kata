@@ -1,7 +1,7 @@
-// "filter" takes an array and a function as input.
-// it returns a new array containing the elements of the
+// "filter" takes an array and a function "f" as input.
+// it returns a new array containing all elements of the input array for which f(element) == true
 // input array for which the given function returns true.
-function filter(inputArray, filterFunc) {
+export function filter(inputArray, filterFunc) {
   // check to see the length of the input array and assign that to a variable called inputArrayLength
   var inputArrayLength = inputArray.legnth
   //declares a variable named returnArray and sets the value to an empty array

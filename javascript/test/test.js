@@ -1,21 +1,36 @@
 import chai from "chai"
-import {filter, filterFunc} from "../index"
-
+import { filter } from "../index"
 
 let expect = chai.expect
 
 describe("filter", () => {
-  it("returns the exact array that was passed to the function", () => {
-    expect([1,2,3], x => true).to.deep.include.members([1,2,3])
+  it("returns the exact array that was passed to the function if the predicate returns true every time", () => {
+    var input = [1,2,3]
+    var predicate = function(x) { return true }
+    //var predicate = x => true
+    var expectedOutput = [1,2,3]
+    expect(filter(input, predicate)).to.eq(expectedOutput)
   })
   it("returns an empty array", () => {
-    expect([1,2,3], x => false).to.deep.include.members([])
+    var input = [1,2,3]
+    var predicate = function(x) { return false }
+    //var predicate = x => false
+    var expectedOutput = []
+    expect(filter(input, predicate)).to.eq(expectedOutput)
   })
   it("returns array containing [true, true]", () => {
-    expect([true,false,true], x => x).to.deep.include.members([true, true])
+    var input = [1,2,3]
+    var predicate = function(x) { return x }
+    //var predicate = x => x
+    var expectedOutput = [true, true]
+    expect(filter(input, predicate)).to.eq(expectedOutput)
   })
   it("returns array containing ['a','c']", () => {
-    expect(['a','b','c'], x => x != 'b').to.deep.include.members(['a','c'])
+    var input = [1,2,3]
+    var predicate = function(x) { x != 'b' }
+    //var predicate = x => x != 'b'
+    var expectedOutput = ['a', 'c']
+    expect(filter(input, predicate)).to.eq(expectedOutput)
   })
 })
 
