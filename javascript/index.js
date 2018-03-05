@@ -3,20 +3,16 @@
 // it returns a new array containing all elements of the input array for which f(element) == true
 // input array for which the given function returns true.
 export function filter(inputArray, filterFunc) {
-  var inputArrayLength = inputArray.legnth
+  var inputArrayLength = inputArray.length
   var returnArray = []
   var currentIndex = 0
-  while (inputArray[currentIndex]) {
+  while (currentIndex < inputArrayLength) {
     var currentElement = inputArray[currentIndex]
-    var newElement = filterFunc(currentElement)
-    if(newElement) {
-      console.log("true")
+    var keep = filterFunc(currentElement)
+    if(keep) {
       returnArray.push(currentElement)
-      currentIndex++
-    } else {
-      console.log("false")
-      currentIndex++
     }
+    currentIndex++
   }
-return returnArray
+  return returnArray
 }
