@@ -19,14 +19,14 @@ describe("filter", () => {
     expect(filter(input, predicate)).to.eq(expectedOutput)
   })
   it("returns array containing [true, true]", () => {
-    var input = [1,2,3]
+    var input = [true,false,true]
     var predicate = function(x) { return x }
     //var predicate = x => x
     var expectedOutput = [true, true]
     expect(filter(input, predicate)).to.eq(expectedOutput)
   })
   it("returns array containing ['a','c']", () => {
-    var input = [1,2,3]
+    var input = ['a','b','c']
     var predicate = function(x) { x != 'b' }
     //var predicate = x => x != 'b'
     var expectedOutput = ['a', 'c']
