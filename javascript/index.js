@@ -16,3 +16,7 @@ export function filter(inputArray, filterFunc) {
   }
   return returnArray
 }
+
+export function all(inputArray, predicateFn) {
+  return inputArray
+}
